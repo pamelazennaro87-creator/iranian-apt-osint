@@ -4,25 +4,20 @@
 
 **Likely affiliation:** Ministry of Intelligence and Security (MOIS) — **High confidence** (explicitly stated in joint CISA/FBI/NCSC advisories)  
 **First observed:** ~2017  
-**Primary motivation:** Espionage and intelligence collection; occasional destructive or ransomware follow-on
+**Primary motivation:** Espionage and intelligence collection; occasional destructive or ransomware follow-on; documented access-sharing behaviour
 
 ---
 
 ## Overview
 
-MuddyWater is a persistent MOIS-linked actor focused on government, telecommunications, defense and critical infrastructure. It is one of the more operationally active Iranian clusters in the 2024–2026 period. The group is pragmatic: it combines custom malware with heavy abuse of legitimate remote management tools and has shown willingness to act as an initial access provider for other Iran-aligned actors.
+MuddyWater is one of the most operationally active and pragmatic MOIS-linked clusters in the 2024–2026 period. It combines custom malware, heavy abuse of legitimate RMM tools, experimentation with non-traditional C2 (including Starlink), and has been observed both overlapping with other Iranian clusters and appearing as a customer of Russian-speaking Malware-as-a-Service platforms.
 
 ---
 
 ## Targeting Profile
 
-**Primary:**
-- Government and local administration
-- Telecommunications
-- Energy and maritime sectors
-- Defense and critical infrastructure
-
-**Geographic focus:** Strong concentration on Israel and the broader Middle East / North Africa. Documented activity also in Europe, Asia and North America.
+**Primary:** Government and local administration, telecommunications, energy and maritime, defense and critical infrastructure.  
+**Geographic focus:** Strong concentration on Israel and broader MENA; documented activity also in Europe, Asia and North America.
 
 ---
 
@@ -30,59 +25,61 @@ MuddyWater is a persistent MOIS-linked actor focused on government, telecommunic
 
 | Period | Summary | Key Characteristics |
 |--------|---------|---------------------|
-| Sep 2024 – Mar 2025 | Multi-sector Israeli campaign (ESET: “Snakes by the riverbank”) | Engineering, local government, manufacturing, universities, utilities; one Egyptian technology target. Introduction/use of MuddyViper and Fooder (Snake-game masquerade). |
-| Early 2025 | Overlap with Lyceum (OilRig subgroup) | Same victim environment accessed by both actors (utilities sector case). Supports initial-access-broker assessment. |
-| Oct 2025 | Phoenix v4 wave | Compromised mailboxes used to target 100+ government and critical infrastructure entities across MENA. |
-| Aug 2025 – Feb 2026 | Four-wave energy & maritime campaign (Unit 42) | Sequential waves with evolving lures and tools (Phoenix, GhostBackDoor, Nuso, Rust-based variants). |
-| Late 2025 – early 2026 | Starlink C2 experimentation | Reported use of commercial satellite internet for command and control. |
+| Sep 2024 – Mar 2025 | Multi-sector Israeli campaign (ESET) | MuddyViper, Fooder (Snake-game), RMM abuse; utilities victim later also accessed by Lyceum |
+| Early 2025 | Operational overlap with Lyceum (OilRig subgroup) | Same victim environment – supports access-broker / sharing assessment |
+| Oct 2025 | Phoenix v4 wave | Compromised mailboxes → 100+ government/CI entities MENA |
+| Aug 2025 – Feb 2026 | Four-wave energy & maritime (Unit 42) | Evolving tooling including Rust-based variants |
+| Late 2025 – early 2026 | **Starlink C2** | Commercial satellite internet used for command and control |
+| 2025+ | Starlink-branded spyware lure | DCHSpy / Earth VPN samples distributed as “Starlink VPN” against Iranian users seeking uncensored access |
 
 ---
 
-## TTPs of Investigative Interest
+## TTPs of Highest Investigative Interest
 
-- **Initial access:** Spear-phishing, often from already-compromised mailboxes; macro-enabled documents; occasional exploitation of public-facing applications.
-- **Persistence & control:** Heavy and distinctive use of legitimate RMM tools (ConnectWise, Syncro, Atera, PDQ and similar). This is one of the more reliable behavioral signals.
-- **Tooling evolution:** Historical PowerShell emphasis → increasing use of compiled custom backdoors and Rust-based tools in 2025–2026.
-- **Credential access & lateral movement:** Standard post-exploitation credential theft and movement.
-- **Potential access sharing:** Documented temporal and victim overlap with OilRig/Lyceum activity.
-
----
-
-## Infrastructure Characteristics (Public)
-
-- Rapid domain turnover; many short-lived domains.
-- Frequent use of NameCheap and similar registrars; Hosterdaddy appears in some reporting.
-- Cloudflare and CDN usage for obfuscation.
-- Experimentation with non-traditional C2 channels (Starlink).
-- Infrastructure is generally low-dwell; static IOC value decays quickly.
+- **RMM as primary foothold and C2** (Atera, ScreenConnect, Syncro, PDQ, SimpleHelp, Level, etc.) — strongest durable behavioural signal.
+- **Starlink / satellite C2** (late 2025–early 2026) — changes geolocation assumptions; requires correlation with traditional infrastructure.
+- **Dual-use of the Starlink brand** — same cluster uses the technology for its own C2 and weaponises the brand against domestic users.
+- **Possible MaaS relationship** — 2026 reporting indicates MuddyWater appeared as customer of a Russian-speaking Malware-as-a-Service platform (code-signing certificates and adjacent infrastructure). This weakens pure “tooling = nationality” attribution.
+- **Access sharing** — documented temporal/victim overlap with OilRig/Lyceum.
 
 ---
 
-## Investigative Notes (for LE / Defensive Use)
+## Infrastructure Characteristics
 
-1. **RMM abuse** is a high-value hunting signal. Presence of unexpected remote management software in government, telecom or energy environments warrants scrutiny.
-2. **Victim overlap** with OilRig/Lyceum activity should be treated as a potential coordination or access-sharing indicator rather than coincidence.
-3. Compromised mailboxes used for distribution create opportunities for email-header and account-takeover analysis.
-4. Tooling families (Phoenix lineage, MuddyViper, newer Rust variants) provide more durable detection opportunities than individual IPs or domains.
-5. Joint CISA/FBI/NCSC advisories remain the strongest public attribution baseline.
+- Rapid domain turnover; Namecheap and Hosterdaddy frequently observed.
+- Cloudflare and CDN usage.
+- Experimentation with Starlink as non-terrestrial C2 channel.
+- Low-dwell infrastructure; behavioural signals outlast individual IOCs.
+
+---
+
+## Investigative Notes (LE / Defensive)
+
+1. Treat unexpected RMM agents as high-priority identities (inventory tenant IDs).
+2. In periods of Iranian internet blackout or high tension, actively hunt for satellite-exit or SpaceX-related C2 patterns linked to known MuddyWater tooling.
+3. When analysing MuddyWater samples from 2025–2026, check code-signing certificates against criminal MaaS clusters.
+4. Victim overlap with OilRig/Lyceum is a coordination signal, not noise.
+5. Starlink-related lures targeting Iranians are a separate but linked activity line useful for persona and intent analysis.
 
 ---
 
 ## Key Public Resources
 
-- CISA / FBI / NCSC joint advisories (AA22-055A and related)
-- ESET: “MuddyWater: Snakes by the riverbank” (Dec 2025)
-- Unit 42 Boggy Serpens / related 2026 assessments
-- Symantec / Broadcom Seedworm reporting
+- CISA/FBI/NCSC joint advisories (AA22-055A and related)
+- ESET “Snakes by the riverbank” (2025)
+- Unit 42 Boggy Serpens / 2026 assessments
+- MITRE ATT&CK G0069 (explicit satellite internet C2 note)
+- Lookout (DCHSpy / Starlink lure)
+- 2026 reporting on MaaS customer relationship
 
 ---
 
 ## Status in this repository
 
-- [x] Expanded profile with campaign windows
-- [x] Investigative notes
-- [x] Link to operational overlap analysis
-- [ ] Deeper public IOC curation
-- [ ] Formal MITRE ATT&CK mapping
+- [x] Expanded campaign timeline
+- [x] Starlink C2 and dual-use brand analysis
+- [x] MaaS relationship flag
+- [x] Access-sharing notes
+- [ ] Deeper public IOC and certificate collection
 
 *Last updated: 2026-11-02*
