@@ -1,50 +1,83 @@
 # Methodology
 
+This repository is an **evidence-first OSINT dossier**.  
+It organises public reporting so investigators and defenders can orient faster — it does not create non-public intelligence.
+
+---
+
 ## Core Principles
 
-This repository follows an **evidence-first** approach:
-
-1. Claims must be supported by primary or high-quality secondary sources.
-2. Attribution is never assumed — confidence levels are always stated.
-3. Single-source or low-quality claims are clearly flagged.
-4. Only publicly disclosed indicators are collected.
-5. Temporal context is required for every significant claim.
+1. **Claims must be sourced** — primary or high-quality secondary sources; no unsupported assertions presented as fact.  
+2. **Attribution is never assumed** — confidence levels are stated; cluster boundaries are documented when fluid.  
+3. **Public indicators only** — no non-public IOCs, no malware samples, no operational access data.  
+4. **Temporal context required** — significant claims are tied to time windows (especially 2024–2026).  
+5. **No invented links** — overlaps between clusters are recorded only when publicly documented; hypotheses are labelled as such.  
+6. **Durable signals over ephemeral IOCs** — behavioural patterns (RMM abuse, edge exploitation, OT exposure, non-traditional C2) are prioritised for investigative value.
 
 ---
 
 ## Source Hierarchy
 
-| Priority | Source Type | Examples |
+| Priority | Source type | Examples |
 |----------|-------------|----------|
-| 1 (Highest) | Official government advisories & indictments | CISA, DOJ, NCSC, etc. |
-| 2 | Primary technical research from major vendors | Mandiant, Microsoft, ESET, Unit 42, Group-IB, CrowdStrike |
-| 3 | High-quality independent researchers / leaks with verifiable material | KittenBusters, major leak analyses |
-| 4 | Reputable secondary analysis | Recorded Future, CyberScoop, specialized CTI blogs |
-| 5 (Lowest) | News aggregation / unverified social media | Used only for leads, never as sole evidence |
+| 1 (Highest) | Official government advisories & actions | CISA, FBI, NSA, NCSC, joint CSA, Treasury |
+| 2 | Primary technical research (major vendors) | Mandiant, Microsoft, ESET, Unit 42, Semperis, CrowdStrike |
+| 3 | High-quality independent technical analysis | Verifiable researcher work with artefacts |
+| 4 | Reputable secondary CTI / specialist reporting | Established CTI shops, specialised outlets |
+| 5 (Lowest) | News aggregation / social claims | Leads only — never sole evidence |
+
+Hacktivist or persona claims (e.g. Telegram) are treated as **narrative** until supported by independent technical evidence.
 
 ---
 
 ## Attribution Confidence Levels
 
-- **High** — Multiple independent high-quality sources, strong technical overlaps (infrastructure, tooling, targeting patterns), or official attribution.
-- **Medium** — Consistent reporting across several sources, but some ambiguity in cluster boundaries or sponsorship.
-- **Low** — Limited sources, possible overlaps with other clusters, or primarily based on targeting/motivation rather than technical evidence.
+| Level | Meaning |
+|-------|--------|
+| **High** | Multiple independent high-quality sources, strong technical overlap, and/or official attribution |
+| **Medium** | Consistent multi-source reporting; some ambiguity in cluster boundaries or sponsorship |
+| **Low** | Limited sources, possible mix with other clusters, or inference mainly from targeting/motivation |
 
-When clusters are fluid (common with Iranian actors), we document naming differences and note potential overlaps rather than forcing a single identity.
-
----
-
-## What We Do Not Do
-
-- Host or distribute malware samples
-- Publish non-public IOCs
-- Make definitive attributions without supporting evidence
-- Treat vendor marketing language as fact
+Iranian actor naming is fragmented across vendors (APT numbers, Sandstorm names, Kitten names, UNC designations). This repo records aliases and notes uncertainty rather than forcing a single identity.
 
 ---
 
-## Update Policy
+## How investigative material is built
 
-- Major new public research → profile update
-- Significant new campaign → new entry under `/campaigns`
-- Conflicting information → documented with sources and confidence assessment
+- **Profiles** — sponsorship (as publicly assessed), targeting, TTPs, infrastructure habits, investigative notes  
+- **Analysis** — cross-cluster reading, geopolitical correlation, under-emphasised angles, explicit gaps  
+- **Checklists** — questions and controls mapped to real public cases (with examples), for IR and hunting  
+- **IOC files** — only already-disclosed indicators, with source and context; not presented as complete or current blocklists  
+
+---
+
+## What this repository does *not* do
+
+- Host or distribute malware samples  
+- Publish non-public or victim-specific data  
+- Assert legal attribution or individual identification  
+- Treat vendor marketing language as fact  
+- Claim exclusivity over public research by others  
+
+---
+
+## Update policy
+
+| Trigger | Action |
+|---------|--------|
+| Major new public research or advisory | Profile / analysis update |
+| Significant new campaign window | Campaign or timeline entry |
+| Conflicting public information | Document both sides with sources and confidence |
+| IOC decay or takedown | Note context; do not present stale indicators as live without caveat |
+
+---
+
+## Intended use
+
+**Appropriate:** defensive intelligence, detection engineering, investigative orientation, OSINT training reference, professional portfolio demonstration of method.  
+
+**Not appropriate:** sole basis for legal action, targeting of individuals, or offensive operations.
+
+---
+
+*Independent OSINT research. Public sources only.*
