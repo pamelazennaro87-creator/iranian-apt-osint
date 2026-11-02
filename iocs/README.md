@@ -3,36 +3,32 @@
 **Strict rules for this directory:**
 
 1. Only indicators that have already been **publicly published** by reputable researchers, vendors, or governments are collected here.
-2. Every indicator must include:
-   - Source (report / advisory / researcher)
-   - Approximate date of publication or observation
-   - Associated group (with confidence level if ambiguous)
-3. No private, leaked-but-not-publicly-analyzed, or unverified indicators.
-4. Prefer high-confidence, recently active infrastructure when possible.
-5. This is a **defensive** collection for detection engineering and research — not an operational target list.
+2. Every indicator must include source and, where available, association time window.
+3. No private or unverified indicators.
+4. Prefer high-confidence, well-sourced data.
+5. This is a **defensive / investigative reference** collection.
 
 ---
 
-## Structure
+## Available Collections
 
-- `domains.txt` — Malicious or actor-controlled domains
-- `ips.txt` — IP addresses with context
-- `hashes.txt` — File hashes (SHA256 preferred)
-- Future: `yara/`, `sigma/`, `stix/` as the collection matures
-
----
-
-## Current Status
-
-🚧 Collection in progress. Initial high-confidence public indicators will be added group-by-group with full source attribution.
-
-**Priority order for population:**
-1. APT35 / Charming Kitten (richest public data, including 2025 leak material)
-2. MuddyWater (active 2025–2026 campaigns)
-3. APT34 / OilRig
-4. APT33
-5. Remaining clusters
+| File | Content |
+|------|---------|
+| [public-examples.md](public-examples.md) | Curated examples (Prince of Persia, APT35, MuddyWater) |
+| [cyberav3ngers-public-ips.md](cyberav3ngers-public-ips.md) | **Full public IP list** from CISA AA26-097A (operator workstation cluster 185.82.73.x, staging hosts, association windows) + limited AA23-335A context |
 
 ---
 
-*All indicators remain the intellectual property of their original publishers. This repository aggregates them for research convenience under fair-use / defensive purposes.*
+## Highest-Value Current Set
+
+The **CyberAv3ngers / AA26-097A** IP collection is the most complete officially sourced set currently in the repository. It includes:
+
+- Operator engineering workstation cluster (185.82.73.x range)
+- Additional staging and related addresses with time windows
+- Clear usage guidance for defenders and investigators
+
+Always re-verify current status of any IP before operational use. CISA itself recommends investigation/vetting prior to blocking.
+
+---
+
+*All indicators remain the intellectual property of their original publishers. Aggregated here for defensive and investigative convenience.*
