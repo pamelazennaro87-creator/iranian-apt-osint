@@ -24,17 +24,19 @@ This repository tracks Iranian Advanced Persistent Threat (APT) groups and relat
 
 ## Main Groups Tracked
 
-| Group | Common Aliases | Likely Affiliation | Primary Focus |
-|-------|----------------|--------------------|---------------|
-| **APT33** | Elfin, Peach Sandstorm, Magnallium, Refined Kitten | IRGC | Energy, aerospace, defense |
-| **APT34** | OilRig, Helix Kitten, Hazel Sandstorm, Crambus | MOIS | Espionage (gov, finance, energy) |
-| **APT35** | Charming Kitten, Phosphorus, Mint Sandstorm, Magic Hound | IRGC | Credential phishing, dissidents, journalists, academics |
-| **MuddyWater** | Static Kitten, TEMP.Zagros, Seedworm | MOIS | Espionage, telecom, government |
-| **Tortoiseshell** | UNC1549, Mirage Kitten, Nimbus Manticore | IRGC | Supply-chain, IT service providers |
-| **Prince of Persia** | Infy | Suspected state-linked | Dissidents + Western targets |
-| **CyberAv3ngers** | — | IRGC-CEC | Destructive / ICS-oriented |
-| **APT39** | Chafer, Remexi | MOIS | Telecom, travel, government |
-| **Fox Kitten** | Pioneer Kitten, Parisite | IRGC | Initial access brokerage |
+| Group | Common Aliases | Likely Affiliation | Primary Focus | Profile Status |
+|-------|----------------|--------------------|---------------|----------------|
+| **APT33** | Elfin, Peach Sandstorm, Magnallium, Refined Kitten | IRGC | Energy, aerospace, defense | Initial |
+| **APT34** | OilRig, Helix Kitten, Hazel Sandstorm, Crambus | MOIS | Espionage (gov, finance, energy) | Initial |
+| **APT35** | Charming Kitten, Phosphorus, Mint Sandstorm, Magic Hound | IRGC | Credential phishing, dissidents, journalists, academics | Initial |
+| **MuddyWater** | Static Kitten, TEMP.Zagros, Seedworm, Mango Sandstorm | MOIS | Espionage, telecom, government | Initial |
+| **Tortoiseshell** | UNC1549, Mirage Kitten, Nimbus Manticore | IRGC | Supply-chain, IT service providers | Overview |
+| **Prince of Persia** | Infy | Suspected state-linked | Dissidents + Western targets | Overview |
+| **CyberAv3ngers** | — | IRGC-CEC | Destructive / ICS-oriented | Overview |
+| **APT39** | Chafer, Remexi | MOIS | Telecom, travel, government | Overview |
+| **Fox Kitten** | Pioneer Kitten, Parisite | IRGC | Initial access brokerage | Overview |
+
+Additional clusters (Agrius, Void Manticore, Cotton Sandstorm, etc.) are tracked in `groups/others.md`.
 
 ---
 
@@ -43,37 +45,27 @@ This repository tracks Iranian Advanced Persistent Threat (APT) groups and relat
 ```
 iranian-apt-osint/
 ├── README.md
-├── methodology.md              # How we evaluate sources and attribution
-├── groups/                     # Individual group profiles
+├── methodology.md
+├── groups/
 │   ├── apt33-elfin.md
 │   ├── apt34-oilrig.md
 │   ├── apt35-charming-kitten.md
 │   ├── muddywater.md
-│   ├── tortoiseshell.md
-│   ├── prince-of-persia.md
 │   └── others.md
-├── campaigns/                  # Notable operations with timelines
-├── iocs/                       # Public IOCs only (domains, IPs, hashes)
-│   ├── domains.txt
-│   ├── ips.txt
-│   └── hashes.txt
-├── ttp/
-│   └── mitre-mapping.md
-└── sources/
-    └── bibliography.md
+├── iocs/
+│   └── README.md          # Rules + collection status
+├── campaigns/             # (planned)
+├── ttp/                   # (planned)
+└── sources/               # (planned)
 ```
 
 ---
 
 ## Notable Existing Public Resources
 
-Before contributing or expanding this repo, review these high-value public sources:
-
 - [KittenBusters/CharmingKitten](https://github.com/KittenBusters/CharmingKitten) — Major 2025 leak exposure of Charming Kitten / IRGC-IO activity
 - [misterch0c/APT34](https://github.com/misterch0c/APT34) — Classic OilRig / APT34 leak material
-- Vendor reports: Mandiant, Microsoft Threat Intelligence, ESET, Palo Alto Unit 42, Group-IB, Recorded Future
-
-This repository aims to synthesize and maintain a clean, continuously updated evidence graph rather than duplicate existing leaks.
+- Vendor reports: Mandiant, Microsoft Threat Intelligence, ESET, Palo Alto Unit 42, Group-IB, Recorded Future, Semperis (Prince of Persia 2026)
 
 ---
 
@@ -85,18 +77,24 @@ This repository aims to synthesize and maintain a clean, continuously updated ev
 4. **Public IOCs only** — Only indicators already published by reputable researchers or governments.
 5. **Temporal clarity** — Every major claim includes approximate date or campaign window.
 
----
-
-## Status
-
-🚧 **Under active construction** — Initial structure created 2026-11-02.
-
-Next steps:
-- [ ] Populate group profiles with current public knowledge
-- [ ] Build initial public IOC lists
-- [ ] Create MITRE ATT&CK overview
-- [ ] Document major 2024–2026 campaigns
+Full details in [`methodology.md`](methodology.md).
 
 ---
 
-*Maintained as part of independent OSINT research.*
+## Current Status (2026-11-02)
+
+✅ Repository created and structured  
+✅ Methodology documented  
+✅ Core profiles added: APT33, APT34, APT35, MuddyWater  
+✅ Overview of additional clusters  
+✅ IOC collection rules established  
+
+**Next priorities:**
+1. Populate public IOCs for APT35 (richest data) and MuddyWater
+2. Expand APT34 and APT33 profiles with campaign timelines
+3. Add MITRE ATT&CK mapping
+4. Begin infrastructure / geolocation notes (public hosting patterns only)
+
+---
+
+*Maintained as part of independent OSINT research. Defensive use only.*
