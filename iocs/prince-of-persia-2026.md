@@ -57,3 +57,8 @@
 ---
 
 *Fonte: Semperis “Prince of Persia: A Threat Group Hiding in Plain Sight” e reporting correlato (ottobre 2026). Ultimo aggiornamento repository: 2026-11-02.*
+
+
+## IOC provenance and freshness — 2026-11-06
+
+The table above is a source-reported historical IOC set, not a live-verified blocklist. The current file does not provide per-indicator first_seen/last_seen timestamps, exact source passages, or a fresh resolution/connection check for every domain and IP. Do not infer those fields from the case-level publication date. Add per-row source reference, source observation date/window, retrieval date, confidence rationale, and current revalidation result before operational use. Where Semperis reports an association, preserve that attribution as “reported by Semperis”; do not promote it to independent confirmation. Shared hosting and Cloudflare-fronted IPs are especially weak as standalone attribution pivots.
