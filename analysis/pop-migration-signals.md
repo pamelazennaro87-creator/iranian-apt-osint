@@ -40,7 +40,7 @@ Obiettivo: trasformare il caso PoP in **segnali riusabili** su altri cluster, no
 
 | Segnale | Perché conta | Come usarlo |
 |---------|--------------|-------------|
-| Spegnimento C2 **entro giorni** da report tecnico dettagliato | Monitoring attivo della letteratura CTI da parte dell’attore | Dopo report major su un cluster, aspettarsi finestra di rebuild; alzare hunting su *nuove* footprint, non solo IOC vecchi |
+| Spegnimento C2 **entro giorni** da report tecnico dettagliato | Ipotesi: possibile monitoraggio della letteratura CTI; non dimostrato dal solo timing | Dopo report major su un cluster, aspettarsi finestra di rebuild; alzare hunting su *nuove* footprint, non solo IOC vecchi |
 | Svuotamento liste vittime / file di stato sul C2 prima dello shutdown | Tentativo di ridurre danno da sinkhole/analisi | Se si ha accesso forense a C2 (LE), conservare timeline di cancellazione |
 
 ### D. Geografia e CDN
@@ -72,10 +72,12 @@ Quando guardi MuddyWater, OilRig, APT35, ecc., chiediti:
 
 ## 4. Solido / ipotesi / sconosciuto
 
-**Solido**  
+**Fatti riportati dalla fonte primaria (Semperis, ottobre 2026)**  
 - Sequenza IP/provider/pannello descritta da Semperis.  
-- Timing spegnimento post-SafeBreach e ripresa post-downtime.  
-- Uso di shared Namecheap USA per Tornado second-stage e successivo strato Cloudflare.
+- Presenza di infrastruttura shared Namecheap USA per Tornado second-stage e successivo strato Cloudflare, nei limiti temporali descritti dalla fonte.
+
+**Correlazione temporale, non causalità**  
+- La sequenza tra pubblicazione tecnica, spegnimento e successiva ricomparsa può essere riportata come cronologia. Non dimostra che l'attore abbia letto il report, reagito ad esso o deliberatamente cambiato infrastruttura per eludere i ricercatori.
 
 **Ipotesi**  
 - Scelta USA come decisione consapevole di “ultimo posto in cui cercare” vs vincolo di disponibilità provider.  
@@ -95,5 +97,11 @@ Quando guardi MuddyWater, OilRig, APT35, ecc., chiediti:
 - `analysis/starlink-channel-migration-case.md` (migrazione di *canale*, complemento a questa di *hosting/stack*)  
 
 ---
+
+## Evidenti limiti e alternative — 2026-11-06
+
+La prossimità temporale tra un report e un cambiamento C2 è una **correlazione**, non prova di monitoraggio della letteratura o di causalità. Alternative compatibili includono rotazione pianificata, scadenza/abuso del servizio hosting, indisponibilità tecnica, perdita di accesso, manutenzione o decisioni operative indipendenti dal report. Per elevare l'ipotesi servirebbe un ponte tecnico o documentale indipendente (ad esempio artefatti che dimostrino accesso al report o comunicazioni dell'operatore), non la sola sequenza temporale.
+
+Le descrizioni di provider, pannello e geografia restano attribuite a Semperis; questo documento non costituisce una verifica indipendente in tempo reale degli host. Prima di riutilizzare gli IOC, verificare lo stato corrente e registrare data e fonte. L'IP shared-hosting non va usato da solo per attribuzione o blocco.
 
 *Output del progetto infrastrutture: segnali, non solo IOC del caso PoP.*
