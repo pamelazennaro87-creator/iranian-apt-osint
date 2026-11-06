@@ -109,3 +109,15 @@ Causalità operativa: **non dimostrata oltre il timing**. Il legame utile è: bl
 *Scheda caso canale. Prossimo passo nel progetto: segnali di migrazione estratti da Prince of Persia (densità/stack/geografia).*  
 
 Fonti ancora: Forbes (Check Point / Handala Starlink), LRQA Iran CTI assessment 2026, NetBlocks/Cloudflare sul blackout, reporting su contromisure regime anti-Starlink.
+
+
+## Source traceability and attribution boundary — 2026-11-06
+
+The source list in this case note is not yet sufficiently granular for independent reproduction. Before using the statements above as confirmed facts, add direct URLs and publication dates for: (1) NetBlocks/Cloudflare observations of the January 2026 connectivity disruption; (2) Check Point's underlying analysis of Handala and the Forbes article (2–3 March 2026) that reports it; (3) LRQA's January 2026 assessment concerning Void Manticore; and (4) the reporting or technical evidence for jamming/terminal disruption claims. Do not invent or infer source URLs; record a source as unresolved until the exact document is located.
+
+**Evidence separation:**
+- A national connectivity blackout and a reported Starlink path are separate observations.
+- A report that Handala used Starlink does not establish that Void Manticore did so, or vice versa.
+- A reported Starlink IP is not by itself proof of operator identity, state control, or malicious activity.
+- The use of the same connectivity technology by multiple clusters is a shared infrastructure characteristic, not proof of coordination or common control.
+- Recommendations for defenders should be based on unexpected egress from a specific asset and corroborating behavior, not on Starlink ASN membership alone.
