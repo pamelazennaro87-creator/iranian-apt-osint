@@ -1,7 +1,7 @@
 # Modus Operandi & Investigative Leads – Shahid Kaveh / CyberAv3ngers
 
 **Scope:** Evidence-first summary of publicly documented TTPs + durable signals useful for investigators and defenders.  
-**Sources:** CERT-FR/C4, CISA AA23-335A & AA26-097A, OFAC, OpenAI, industry reporting (Claroty, Tenable, Orion Policy), open biographical data.
+**Sources:** CERT-FR/C4, CISA AA23-335A & AA26-097A, OFAC, OpenAI, industry reporting (Claroty, Tenable, Orion Policy, DomainTools), open biographical data, historical leaks (Lab Dookhtegan / Iran International / Sky News).
 
 > Goal: surface observable patterns and residual OPSEC failures that remain useful for attribution, hunting and disruption — not ephemeral IOCs.
 
@@ -58,11 +58,22 @@ These are residual signals and under-emphasised patterns that can still yield in
 ### B. Persona & Propaganda Coupling
 - Claims often appear shortly after real activity via CyberbanNews or related Telegram channels. Timing correlation between technical indicators and propaganda posts can strengthen attribution.
 - Persona domains historically registered via Namecheap with privacy protection (cyberav3ngers.* family).
+- **CyberbanNews Telegram strategy (public analysis):** Over 23,000 messages examined across the Farsi channel (active since Feb 2020) and later English channel. The outlet presents itself as a neutral cybersecurity news agency and never names “Shahid Kaveh”, while still referencing operational personas (CyberAv3ngers etc.). This dual-track approach (technical operations + seemingly independent media) is a consistent pattern.
 
 ### C. Leadership & Human Residuals
-- **Academic pivot:** Imam Hossein University research output and associated co-authors linked to Lashgarian.
+- **Academic pivot (strong residual):** Hamid Reza Lashgarian is publicly linked as assistant professor / researcher at Imam Hossein University (IRGC’s primary military academic institution). Documented paper titles include:
+  - Role of UAVs in electronic warfare – integration needs and challenges
+  - Bayesian methods to reduce ambiguity in marine target identification
+  - Analysing enemy behaviour using Markov models based on electronic warfare observations
 - **Family reporting:** Open-source claims of family relationship between Hamid Reza and Mahdi Lashgarian (treat as medium confidence).
-- **Historical leaks:** Lab Dookhtegan / Iran International material on Reza Salarvand and Intelligence Group 13 (target databases for ships, fuel systems, PLCs) remains one of the few detailed public windows into internal tasking.
+- **Historical leaks (high value):** Lab Dookhtegan / Iran International / Sky News material (2020–2021) on Reza Salarvand and **Intelligence Group / Team 13**. The leaked reports examined vulnerabilities in:
+  - Ballast water control systems on cargo ships
+  - Maritime satellite communications
+  - Fuel tank / pump management systems
+  - Smart building controls
+  - WAGO programmable logic controllers
+  These documents remain one of the few detailed public windows into internal targeting priorities.
+- **Organizational code (from leaked diagrams):** Shahid Kaveh / Intelligence Team 13 appears under code **360/1**.
 - **Rewards for Justice:** Active $10M bounty on Hamid Reza Lashgarian increases the value of any new open-source identification of associates or infrastructure.
 
 ### D. Targeting Logic
@@ -74,8 +85,9 @@ These are residual signals and under-emphasised patterns that can still yield in
 1. Re-use of infrastructure across campaigns.
 2. Language artefacts (Farsi).
 3. Predictable product targeting (Unitronics → Rockwell → multi-vendor).
-4. Coupling of technical operations with public claims.
+4. Coupling of technical operations with public claims (and the “independent media” layer of CyberbanNews).
 5. Use of AI tools for reconnaissance (OpenAI publicly documented CyberAv3ngers-linked accounts researching ICS, default credentials and scripting).
+6. Symbolic domain registrations timed to propaganda milestones.
 
 ---
 
@@ -88,6 +100,7 @@ These are residual signals and under-emphasised patterns that can still yield in
 | High | Alert on Modbus 502, EtherNet/IP 44818 and related OT ports from external sources |
 | Medium | Correlate FOFA-style scanning with subsequent OT access attempts |
 | Medium | Track persona domain registrations and CyberbanNews content timing against technical events |
+| Medium | Monitor academic output and co-author networks linked to Imam Hossein University electronic-warfare research |
 | Ongoing | Re-validate any historical IPs from CISA AA26-097A against current passive DNS before action |
 
 ---
@@ -96,16 +109,28 @@ These are residual signals and under-emphasised patterns that can still yield in
 
 - No public full IOC set for the October 2026 French campaign.
 - Limited independent confirmation of internal recruitment pipelines specific to Shahid Kaveh.
-- Sparse public visibility into the exact relationship between Intelligence Group 13 tasking and operational execution.
+- Sparse public visibility into the exact relationship between Intelligence Group 13 tasking and operational execution after 2021.
 - Few durable human identifiers beyond the three named individuals and their OFAC records.
+- No current, independently verifiable active C2 or operator infrastructure beyond behavioural patterns.
 
-These gaps define the priority for future open-source collection.
+These gaps define the priority for future open-source collection. Further public progress will most likely come from:
+1. New technical advisories with IOCs
+2. Additional leaks or opposition reporting on internal structure
+3. Correlation of academic / research networks with operational activity
 
 ---
 
 ## Sources
 
 See [`SOURCES.md`](../SOURCES.md) and the individual group/campaign files.  
-Key additional references for this document: Orion Policy CyberAv3ngers profile, OpenAI disruption report (2024), CISA AA26-097A, CERTFR-2026-CTI-009, Lab Dookhtegan / Iran International historical reporting.
+Key additional references for this document:  
+- Orion Policy CyberAv3ngers profile  
+- OpenAI disruption report (2024)  
+- CISA AA26-097A & AA23-335A  
+- CERTFR-2026-CTI-009  
+- Lab Dookhtegan / Iran International / Sky News historical reporting (2020–2021)  
+- DomainTools Investigations on CyberAv3ngers domains and propaganda shift  
+- Public analysis of CyberbanNews Telegram messaging strategy  
+- Jerusalem Post / Intelli Times reporting on Lashgarian academic activity  
 
-*Created: 2026-11-10 · Public sources only · Evidence-first*
+*Last updated: 2026-11-10 · Public sources only · Evidence-first*
