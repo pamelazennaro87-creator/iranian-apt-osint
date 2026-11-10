@@ -7,6 +7,8 @@
 
 **Primary public attribution event:** French supermarket refrigeration sabotage campaign (11–12 October 2026)
 
+> **Deep-dive:** Modus operandi, recruitment notes and divergent investigative leads → [`analysis/modus-operandi-and-investigative-leads.md`](../analysis/modus-operandi-and-investigative-leads.md)
+
 ---
 
 ## Official Attribution (France – 9 November 2026)
@@ -40,6 +42,7 @@ The Paris Prosecutor’s Office opened a judicial investigation and requested **
   - OFAC SDN since 2 February 2024 (SDGT / IRGC / IFSR)
   - Rewards for Justice: up to $10 million (re-listed 2026)
   - Linked in open sources to Quds Force cyber/intelligence activity and research centres (Kavosh, Nasr, Kousar Com, Deep Com Asia)
+  - Academic ties to Imam Hossein University (electronic warfare research)
 - **Confidence:** High
 
 ### 2. Mahdi Lashgarian (مهدی لشگریان / Mehdi Lashgarian)
@@ -111,6 +114,7 @@ Primary:
 
 - [x] Leadership dossier based on official French attribution + public OFAC identifiers
 - [x] Technical notes from CERT-FR
+- [x] Link to dedicated modus operandi & investigative leads analysis
 - [x] Explicit public-sources-only methodology
 - [x] Cross-link to CyberAv3ngers profile and SOURCES.md
 - [ ] Additional technical IOCs as new public advisories appear
