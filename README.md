@@ -15,11 +15,12 @@
 | Documento | Contenuto |
 |-----------|-----------|
 | [`groups/shahid-kaveh.md`](groups/shahid-kaveh.md) | **Leadership dossier completo** (Hamid Reza Lashgarian, Mahdi Lashgarian, Reza Salarvand) + identificatori pubblici OFAC + note tecniche CERT-FR |
+| [`analysis/modus-operandi-and-investigative-leads.md`](analysis/modus-operandi-and-investigative-leads.md) | **Modus operandi + ricerca divergente**: TTPs, reclutamento, segnali duraturi e lead investigativi utili |
 | [`campaigns/france-refrigeration-2026.md`](campaigns/france-refrigeration-2026.md) | Sintesi della campagna + basi di attribuzione e contesto tecnico |
 | [`groups/cyberav3ngers.md`](groups/cyberav3ngers.md) | Persona pubblica / front collegata a Shahid Kaveh |
 | [`SOURCES.md`](SOURCES.md) | Elenco completo delle fonti pubbliche utilizzate |
 
-Tutte le informazioni su nomi, ruoli, identificatori e attribuzione derivano **esclusivamente** da dichiarazioni ufficiali francesi (Parquet de Paris, CERT-FR/C4, MFA), listing OFAC e reporting pubblico conseguente.
+Tutte le informazioni derivano **esclusivamente** da dichiarazioni ufficiali francesi, listing OFAC e reporting pubblico.
 
 ---
 
@@ -27,9 +28,9 @@ Tutte le informazioni su nomi, ruoli, identificatori e attribuzione derivano **e
 
 | Utente | Utilità |
 |--------|--------|
-| Investigatori / forze dell’ordine | Orientamento rapido, discriminanti tra cluster, checklist IR |
-| SOC / detection engineering | Segnali comportamentali duraturi (RMM, edge, OT, canali non tradizionali) |
-| Analisti CTI / ricercatori OSINT | Sintesi strutturata 2024–2026, gap nelle narrazioni pubbliche |
+| Investigatori / forze dell’ordine | Orientamento rapido, discriminanti tra cluster, checklist IR, lead investigativi |
+| SOC / detection engineering | Segnali comportamentali duraturi (engineering software da VPS, porte OT, FOFA) |
+| Analisti CTI / ricercatori OSINT | Sintesi strutturata + angoli divergenti ancora sfruttabili |
 
 **Non è:** intelligence classificata, feed di IOC da “block & forget”, né prova giudiziaria autonoma.
 
@@ -40,10 +41,10 @@ Tutte le informazioni su nomi, ruoli, identificatori e attribuzione derivano **e
 ### Per chi indaga ora
 | Documento | Contenuto |
 |-----------|-----------|
-| [`groups/shahid-kaveh.md`](groups/shahid-kaveh.md) | Leadership IRGC-CEC / Shahid Kaveh (attribuzione francese 9 Nov 2026) |
+| [`analysis/modus-operandi-and-investigative-leads.md`](analysis/modus-operandi-and-investigative-leads.md) | **TTPs + lead investigativi + OPSEC residuals** |
+| [`groups/shahid-kaveh.md`](groups/shahid-kaveh.md) | Leadership IRGC-CEC / Shahid Kaveh |
 | [`campaigns/france-refrigeration-2026.md`](campaigns/france-refrigeration-2026.md) | Campagna sabotaggio refrigerazione Francia |
 | [`SOURCES.md`](SOURCES.md) | Fonti primarie e secondarie complete |
-| [`analysis/investigative-questions-checklist.md`](analysis/investigative-questions-checklist.md) | Domande + checklist + mini-playbook |
 
 ### Profili attori principali
 | Gruppo | Note | Path |
@@ -53,7 +54,6 @@ Tutte le informazioni su nomi, ruoli, identificatori e attribuzione derivano **e
 | MuddyWater | RMM, Starlink, possibile MaaS | [`groups/muddywater.md`](groups/muddywater.md) |
 | Fox Kitten | Access broker + ransomware affiliates | [`groups/fox-kitten.md`](groups/fox-kitten.md) |
 | Prince of Persia | Caso infrastrutturale 2026 | [`groups/prince-of-persia.md`](groups/prince-of-persia.md) |
-| APT35 / APT34 / APT33 / others | Profili di base | `groups/` |
 
 ---
 
@@ -62,12 +62,12 @@ Tutte le informazioni su nomi, ruoli, identificatori e attribuzione derivano **e
 ```
 iranian-apt-osint/
 ├── README.md
-├── SOURCES.md                ← elenco completo fonti pubbliche
+├── SOURCES.md
 ├── methodology.md
 ├── groups/                   ← profili attori (incluso Shahid Kaveh)
 ├── campaigns/                ← campagne specifiche (Francia 2026)
 ├── iocs/                     ← indicatori pubblici contestualizzati
-├── analysis/                 ← geopolitica, gap, checklist, Starlink
+├── analysis/                 ← geopolitica, gap, checklist, Starlink, **modus operandi & leads**
 └── infrastructure/
 ```
 
@@ -75,11 +75,7 @@ iranian-apt-osint/
 
 ## Metodologia e disclaimer fonti
 
-**Tutte le informazioni contenute in questo repository (nomi, IP, domini, attribuzioni, TTPs, identificatori biografici) derivano esclusivamente da fonti pubbliche verificate.**
-
-- Fonti primaria: advisory governative (CERT-FR, CISA, FBI, Treasury OFAC, MFA francesi)
-- Fonti secondarie: report tecnici di vendor e media che riportano le dichiarazioni ufficiali
-- Nessun dato classificato, nessuna informazione non pubblica, nessuna invenzione
+**Tutte le informazioni contenute in questo repository derivano esclusivamente da fonti pubbliche verificate.**
 
 Dettaglio completo: [`methodology.md`](methodology.md) e [`SOURCES.md`](SOURCES.md)
 
@@ -90,10 +86,10 @@ Dettaglio completo: [`methodology.md`](methodology.md) e [`SOURCES.md`](SOURCES.
 **Ultimo aggiornamento:** 10 novembre 2026  
 
 Incluso:  
-- Dossier leadership Shahid Kaveh completo (attribuzione ufficiale + identificatori OFAC pubblici + note CERT-FR)  
-- Campagna sabotaggio refrigerazione Francia ottobre 2026  
+- Dossier leadership Shahid Kaveh completo  
+- **Analisi modus operandi + ricerca divergente e lead investigativi**  
+- Campagna sabotaggio refrigerazione Francia  
 - Elenco fonti strutturato  
-- Profili chiave, correlazione geopolitica, checklist IR, analisi gap  
 
 ---
 
